@@ -1,0 +1,20 @@
+export const commonPasswords = [
+  'password', 'password1', 'password123', '123456', '12345678', '123456789',
+  '1234567890', 'qwerty', 'qwerty123', 'abc123', 'letmein', 'monkey',
+  'dragon', 'master', 'sunshine', 'princess', 'welcome', 'shadow',
+  'superman', 'michael', 'jessica', 'football', 'baseball', 'starwars',
+  'trustno1', 'iloveyou', 'admin', 'admin123', 'root', 'toor',
+  'pass', 'test', 'guest', 'login', 'changeme', 'secret', 'pass123',
+  'password!', 'pass1234', 'Pa$$w0rd', 'P@ssword', 'P@ssw0rd', 'Admin@123',
+  'Passw0rd', 'Password1', 'Password1!', 'Admin1234', 'Welcome1',
+  'Welcome123', 'Summer2024', 'Winter2024', 'Spring2024', 'Fall2024',
+  'January1', 'February1', 'March2024', 'qazwsx', 'zxcvbn', 'asdfgh',
+  '111111', '222222', '333333', '444444', '555555', '666666', '777777',
+  '888888', '999999', '000000', '1234', '12345', '123123', '654321',
+  '987654321', 'whatever', 'nothing', 'freedom', 'pass@123', 'P@55word',
+  'hunter2', 'batman', 'spiderman', 'ironman', 'captain', 'ranger',
+  'dallas', 'blahblah', 'cheese', 'beer', 'coffee', 'hockey', 'soccer',
+  'tennis', 'basketball', 'harley', 'ranger1', 'maggie', 'charlie',
+  'hello123', 'hello', 'letmein1', 'love123', 'love', 'flower',
+  'orange', 'purple', 'yellow', 'green', 'blue', 'white', 'black'
+];
