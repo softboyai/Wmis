@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Package } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useAuth } from '../hooks/useAuth.jsx';
 import { loginSchema } from '../lib/validationSchemas.js';
 import Input from '../components/ui/Input.jsx';
 import PasswordInput from '../components/ui/PasswordInput.jsx';
 import Button from '../components/ui/Button.jsx';
+import BrandLogo from '../components/BrandLogo.jsx';
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -39,9 +39,7 @@ export default function LoginPage() {
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="flex flex-col items-center mb-8">
-          <div className="w-11 h-11 rounded-xl bg-accent flex items-center justify-center mb-3">
-            <Package className="w-6 h-6 text-white" aria-hidden />
-          </div>
+          <BrandLogo className="w-24 h-12 mb-3" />
           <h1 className="text-lg font-semibold text-gray-900 dark:text-gray-100">AGL Rwanda</h1>
           <p className="text-xs text-gray-500 dark:text-gray-500 mt-0.5">Warehouse Management System</p>
         </div>

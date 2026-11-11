@@ -250,10 +250,10 @@ export default function ThemeCustomizer() {
               </div>
             </div>
 
-            {/* Color pickers — drag to change */}
+            {/* Color pickers, drag to change */}
             <div className="space-y-3">
               <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-500 uppercase tracking-wide">
-                Colors — click or drag to change
+                Colors, click or drag to change
               </h3>
               <p className="text-xs text-gray-400">Click the swatch to open a color picker or drag it to adjust hue.</p>
               {Object.entries(COLOR_LABELS).map(([name, label]) => (
@@ -287,7 +287,7 @@ export default function ThemeCustomizer() {
   );
 }
 
-// Draggable color swatch — drag left/right to change hue
+// Draggable color swatch, drag left/right to change hue
 function ColorSwatch({ name, label, color, onChange }) {
   const swatchRef = useRef(null);
   const dragRef = useRef(null);
@@ -316,7 +316,7 @@ function ColorSwatch({ name, label, color, onChange }) {
 
   return (
     <div className="flex items-center gap-3">
-      {/* Color swatch — drag to change hue, click for picker */}
+      {/* Color swatch, drag to change hue, click for picker */}
       <div className="relative flex-shrink-0">
         <div
           ref={swatchRef}
@@ -325,7 +325,7 @@ function ColorSwatch({ name, label, color, onChange }) {
           onMouseDown={(e) => { e.preventDefault(); startDrag(e.clientX); }}
           onTouchStart={(e) => startDrag(e.touches[0].clientX)}
           title="Drag left/right to change hue"
-          aria-label={`${label} color swatch — drag to change hue`}
+          aria-label={`${label} color swatch, drag to change hue`}
         />
         {/* Hidden native color picker triggered on click */}
         <input

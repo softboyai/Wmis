@@ -132,7 +132,7 @@ export default function ReportsPage() {
                 <Tr key={r._id}>
                   <Td>{new Date(r.receiptDate).toLocaleDateString()}</Td>
                   <Td>{r.product?.name}</Td><Td>{r.supplier?.name}</Td>
-                  <Td>{r.location ? `${r.location.zone}-${r.location.rack}-${r.location.bin}` : '—'}</Td>
+                  <Td>{r.location ? `${r.location.zone}-${r.location.rack}-${r.location.bin}` : 'N/A'}</Td>
                   <Td>{r.quantity}</Td><Td>{r.receivedBy?.fullName}</Td>
                 </Tr>
               ))}

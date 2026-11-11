@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../hooks/useTheme.jsx';
+import BrandLogo from '../components/BrandLogo.jsx';
 import {
   Package, BarChart3, Truck, Shield, Zap, Globe,
   ArrowRight, ChevronRight, Moon, Sun, Menu, X,
@@ -36,33 +37,6 @@ function Counter({ target, suffix = '', duration = 2000 }) {
   }, [target, duration]);
 
   return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
-}
-
-/* ─── floating particles ────────────────────────────────── */
-function Particles() {
-  const particles = Array.from({ length: 20 }, (_, i) => ({
-    id: i,
-    left: `${Math.random() * 100}%`,
-    top: `${Math.random() * 100}%`,
-    size: Math.random() * 3 + 1,
-    delay: Math.random() * 4,
-    duration: Math.random() * 4 + 3,
-  }));
-  return (
-    <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
-      {particles.map(p => (
-        <div
-          key={p.id}
-          className="absolute rounded-full bg-indigo-400/20 dark:bg-indigo-400/10"
-          style={{
-            left: p.left, top: p.top,
-            width: p.size, height: p.size,
-            animation: `float ${p.duration}s ease-in-out ${p.delay}s infinite alternate`,
-          }}
-        />
-      ))}
-    </div>
-  );
 }
 
 /* ─── feature card ──────────────────────────────────────── */
@@ -195,7 +169,7 @@ function MockDashboard() {
           {/* chart + alerts */}
           <div className="grid grid-cols-3 gap-1.5">
             <div className="col-span-2 bg-white dark:bg-white/5 rounded-lg p-2 border border-gray-100 dark:border-white/5 h-24">
-              <p className="text-[8px] text-gray-400 mb-2">Stock Movements — 30 Days</p>
+              <p className="text-[8px] text-gray-400 mb-2">Stock Movements: 30 Days</p>
               <div className="flex items-end gap-0.5 h-14">
                 {[40,65,45,80,55,70,45,90,60,75,50,85,65,55,78,62,88,45,70,56,82,47,69,74,58,83,61,77,53,88].map((h, i) => (
                   <div
@@ -253,39 +227,15 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white dark:bg-[#080808] text-gray-900 dark:text-gray-100 overflow-x-hidden">
-      {/* ── floating particles in hero ── */}
       <style>{`
-        @keyframes float {
-          0% { transform: translateY(0px) scale(1); opacity: 0.4; }
-          100% { transform: translateY(-20px) scale(1.4); opacity: 0.1; }
-        }
-        @keyframes shimmer {
-          0% { background-position: -200% center; }
-          100% { background-position: 200% center; }
-        }
-        @keyframes glow-pulse {
-          0%, 100% { opacity: 0.4; transform: scale(1); }
-          50% { opacity: 0.7; transform: scale(1.05); }
-        }
-        .shimmer-text {
-          background: linear-gradient(90deg, #6366f1, #8b5cf6, #06b6d4, #6366f1);
-          background-size: 200% auto;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          animation: shimmer 4s linear infinite;
-        }
-        .glow-bg {
-          animation: glow-pulse 3s ease-in-out infinite;
-        }
         .hero-grid {
-          background-image: linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px);
+          background-image: linear-gradient(rgba(148,101,20,0.05) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(148,101,20,0.05) 1px, transparent 1px);
           background-size: 40px 40px;
         }
         .dark .hero-grid {
-          background-image: linear-gradient(rgba(99,102,241,0.08) 1px, transparent 1px),
-                            linear-gradient(90deg, rgba(99,102,241,0.08) 1px, transparent 1px);
+          background-image: linear-gradient(rgba(196,154,70,0.08) 1px, transparent 1px),
+                            linear-gradient(90deg, rgba(196,154,70,0.08) 1px, transparent 1px);
         }
       `}</style>
 
@@ -298,9 +248,7 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto px-5 h-14 flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-              <Package className="w-4.5 h-4.5 text-white" aria-hidden />
-            </div>
+            <BrandLogo className="w-16 h-8" />
             <div className="hidden sm:block">
               <span className="text-sm font-bold text-gray-900 dark:text-white">AGL Rwanda</span>
               <span className="text-xs text-gray-400 ml-1.5">WMIS</span>
@@ -331,7 +279,7 @@ export default function HomePage() {
             </button>
             <button
               onClick={() => navigate('/login')}
-              className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-colors shadow-lg shadow-indigo-500/20"
+              className="hidden sm:flex items-center gap-1.5 px-4 py-1.5 text-sm font-medium text-white bg-[#946514] hover:bg-[#80560f] rounded-lg transition-colors"
             >
               Sign In <ArrowRight className="w-3.5 h-3.5" />
             </button>
@@ -356,7 +304,7 @@ export default function HomePage() {
             ))}
             <div className="pt-2">
               <button onClick={() => navigate('/login')}
-                className="w-full py-2.5 text-sm font-medium text-white bg-indigo-600 rounded-lg">
+                className="w-full py-2.5 text-sm font-medium text-white bg-[#946514] rounded-lg">
                 Sign In
               </button>
             </div>
@@ -366,35 +314,30 @@ export default function HomePage() {
 
       {/* ══ HERO ════════════════════════════════════════════ */}
       <section className="relative min-h-screen flex items-center hero-grid pt-14">
-        {/* glow blobs */}
-        <div className="absolute top-20 left-1/4 w-96 h-96 bg-indigo-500/10 dark:bg-indigo-500/15 rounded-full blur-3xl glow-bg pointer-events-none" aria-hidden />
-        <div className="absolute bottom-20 right-1/4 w-72 h-72 bg-purple-500/10 dark:bg-purple-500/10 rounded-full blur-3xl glow-bg pointer-events-none" style={{ animationDelay: '1.5s' }} aria-hidden />
-        <Particles />
-
         <div className="relative max-w-6xl mx-auto px-5 py-24 w-full">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* Left — text */}
+            {/* Left: text */}
             <div>
               {/* pill badge */}
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/8 dark:bg-indigo-500/10 mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
-                <span className="text-xs font-medium text-indigo-600 dark:text-indigo-400">Africa Global Logistics Rwanda</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#946514]/30 bg-[#946514]/5 dark:bg-[#946514]/10 mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#946514]" />
+                <span className="text-xs font-medium text-[#80560f] dark:text-[#d7b76b]">Africa Global Logistics Rwanda</span>
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-5xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white mb-6">
                 Warehouse Management{' '}
-                <span className="shimmer-text">Reimagined</span>{' '}
+                <span className="text-[#946514] dark:text-[#d7b76b]">Reimagined</span>{' '}
                 for Africa
               </h1>
 
               <p className="text-base text-gray-500 dark:text-gray-400 leading-relaxed mb-8 max-w-lg">
-                Track stock, manage dispatch orders, generate reports, and keep your warehouse operation moving — all from one clear dashboard.
+                Track stock, manage dispatch orders, generate reports, and keep your warehouse operation moving, all from one clear dashboard.
               </p>
 
               <div className="flex flex-wrap gap-3 mb-10">
                 <button
                   onClick={() => navigate('/login')}
-                  className="flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl transition-all shadow-lg shadow-indigo-500/30 hover:shadow-indigo-500/50 hover:-translate-y-0.5"
+                  className="flex items-center gap-2 px-6 py-3 text-sm font-semibold text-white bg-[#946514] hover:bg-[#80560f] rounded-xl transition-all hover:-translate-y-0.5"
                 >
                   Get Started <ArrowRight className="w-4 h-4" />
                 </button>
@@ -417,7 +360,7 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right — mock dashboard */}
+            {/* Right: mock dashboard */}
             <div className="relative hidden lg:block">
               <div className="absolute -inset-4 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-3xl blur-xl" aria-hidden />
               <MockDashboard />
@@ -482,7 +425,7 @@ export default function HomePage() {
               Built for real warehouse operations
             </h2>
             <p className="text-sm text-gray-500 dark:text-gray-500 max-w-xl mx-auto leading-relaxed">
-              Every feature was designed for the actual day-to-day flow of a modern warehouse — from receiving goods to dispatching orders.
+              Every feature was designed for the actual day-to-day flow of a modern warehouse, from receiving goods to dispatching orders.
             </p>
           </div>
 
@@ -492,7 +435,7 @@ export default function HomePage() {
             <FeatureCard icon={TrendingUp} color="green" title="Real-Time Stock Tracking"
               desc="Every receipt and dispatch updates stock atomically. Automatic low-stock flags when quantity hits the minimum threshold." delay={50} />
             <FeatureCard icon={Truck} color="blue" title="Dispatch Order Workflow"
-              desc="Store Keepers request, Managers approve or reject with reasons. Stock is deducted only on dispatch — never goes negative." delay={100} />
+              desc="Store Keepers request, Managers approve or reject with reasons. Stock is deducted only on dispatch and never goes negative." delay={100} />
             <FeatureCard icon={FileText} color="purple" title="PDF & CSV Reports"
               desc="Generate stock, receipt, and dispatch reports filtered by date, category, and location. Export in one click." delay={150} />
             <FeatureCard icon={Shield} color="rose" title="Role-Based Access Control"
@@ -519,7 +462,7 @@ export default function HomePage() {
                 From receiving to dispatch in 4 steps
               </h2>
               <p className="text-sm text-gray-500 dark:text-gray-500 mb-10 leading-relaxed">
-                The entire warehouse cycle is covered — goods in, storage, approval, and goods out — with stock accuracy guaranteed at every step.
+                The entire warehouse cycle is covered: goods in, storage, approval, and goods out, with stock accuracy guaranteed at every step.
               </p>
               <div>
                 <Step number={1} icon={Package} title="Record Goods Received"
@@ -578,7 +521,7 @@ export default function HomePage() {
             <span className="inline-block text-xs font-semibold text-indigo-500 uppercase tracking-widest mb-3">Access Control</span>
             <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white mb-4">Three roles, clear boundaries</h2>
             <p className="text-sm text-gray-500 dark:text-gray-500 max-w-xl mx-auto">
-              Each role has precisely the access it needs — nothing more. Enforced on every API endpoint, not just the UI.
+              Each role has precisely the access it needs, with permissions enforced on every API endpoint, not just the UI.
             </p>
           </div>
           <div className="grid sm:grid-cols-3 gap-4">
@@ -618,7 +561,7 @@ export default function HomePage() {
             <div className="grid grid-cols-2 gap-3">
               {[
                 { icon: Lock, title: 'JWT Auth', sub: '15-min access tokens + 7-day refresh', color: 'indigo' },
-                { icon: Shield, title: 'bcrypt Hashing', sub: 'Cost factor 12 — industry standard', color: 'emerald' },
+                { icon: Shield, title: 'bcrypt Hashing', sub: 'Cost factor 12, industry standard', color: 'emerald' },
                 { icon: Activity, title: 'Rate Limiting', sub: '5 login attempts / 15 min per IP', color: 'amber' },
                 { icon: Globe, title: 'CORS & Helmet', sub: 'Security headers on every response', color: 'blue' },
                 { icon: Database, title: 'Mongo Sanitize', sub: 'NoSQL injection prevention built in', color: 'purple' },
@@ -650,14 +593,14 @@ export default function HomePage() {
                 Enterprise-grade protection, out of the box
               </h2>
               <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
-                WMIS was built with security as a first-class concern, not an afterthought. Every endpoint is protected, every password is hashed, every action is logged — and nothing sensitive ever reaches the client.
+                WMIS was built with security as a first-class concern, not an afterthought. Every endpoint is protected, every password is hashed, every action is logged, and nothing sensitive ever reaches the client.
               </p>
               <ul className="space-y-2.5">
                 {[
                   'Passwords are never stored, returned, or logged in plain text',
                   'Stack traces never exposed in production responses',
                   'Request body size capped at 10 KB to prevent DoS',
-                  'Parameterized queries — no raw string interpolation',
+                  'Parameterized queries, no raw string interpolation',
                 ].map(point => (
                   <li key={point} className="flex items-start gap-2.5 text-sm text-gray-600 dark:text-gray-400">
                     <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5" aria-hidden />
@@ -671,12 +614,8 @@ export default function HomePage() {
       </section>
 
       {/* ══ CTA ══════════════════════════════════════════════ */}
-      <section className="py-28 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-600 via-indigo-700 to-purple-700" aria-hidden />
-        <div className="absolute inset-0 hero-grid opacity-20" aria-hidden />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl" aria-hidden />
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl" aria-hidden />
-        <Particles />
+      <section className="py-28 relative overflow-hidden bg-[#102338]">
+        <div className="absolute inset-x-0 top-0 h-1 bg-[#c49a46]" aria-hidden />
 
         <div className="relative max-w-2xl mx-auto px-5 text-center">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 border border-white/20 mb-6">
@@ -686,13 +625,13 @@ export default function HomePage() {
           <h2 className="text-4xl font-extrabold text-white mb-5 leading-tight">
             Ready to take control of your warehouse?
           </h2>
-          <p className="text-indigo-200 text-sm mb-10 leading-relaxed">
+          <p className="text-white/75 text-sm mb-10 leading-relaxed">
             Sign in with your organization account to manage goods received, stock, dispatches, and reports.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <button
               onClick={() => navigate('/login')}
-              className="flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-indigo-700 bg-white hover:bg-indigo-50 rounded-xl transition-all shadow-xl hover:-translate-y-0.5"
+              className="flex items-center gap-2 px-8 py-3.5 text-sm font-semibold text-[#102338] bg-white hover:bg-[#f4ead3] rounded-xl transition-all shadow-xl hover:-translate-y-0.5"
             >
               Sign In Now <ArrowRight className="w-4 h-4" />
             </button>

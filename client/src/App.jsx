@@ -89,7 +89,7 @@ export default function App() {
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
 
-      {/* Theme customizer — only shown when logged in */}
+      {/* Theme customizer, only shown when logged in */}
       {user && <ThemeCustomizer />}
     </>
   );

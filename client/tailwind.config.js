@@ -21,12 +21,12 @@ export default {
           subtle: '#252525',
           strong: '#3a3a3a',
         },
-        // Accent - Indigo
+        // AGL gold accent
         accent: {
-          DEFAULT: '#5b6af5',
-          hover: '#6e7cf7',
-          subtle: 'rgba(91,106,245,0.12)',
-          border: 'rgba(91,106,245,0.3)',
+          DEFAULT: '#946514',
+          hover: '#80560f',
+          subtle: 'rgba(148,101,20,0.12)',
+          border: 'rgba(148,101,20,0.3)',
         },
         // Semantic
         success: { DEFAULT: '#22c55e', subtle: 'rgba(34,197,94,0.12)', border: 'rgba(34,197,94,0.3)' },

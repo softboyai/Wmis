@@ -8,6 +8,7 @@ import {
 import { useAuth } from '../hooks/useAuth.jsx';
 import { useTheme } from '../hooks/useTheme.jsx';
 import CommandPalette from '../components/CommandPalette.jsx';
+import BrandLogo from '../components/BrandLogo.jsx';
 import toast from 'react-hot-toast';
 
 const navItems = [
@@ -109,9 +110,7 @@ export default function AppLayout() {
       >
         {/* Logo */}
         <div className={`flex items-center gap-2.5 px-3 py-4 border-b border-gray-100 dark:border-border flex-shrink-0`}>
-          <div className="w-7 h-7 rounded-md bg-accent flex items-center justify-center flex-shrink-0">
-            <Package className="w-4 h-4 text-white" aria-hidden />
-          </div>
+          <BrandLogo className="w-10 h-7" />
           {!collapsed && (
             <div className="overflow-hidden">
               <p className="text-xs font-semibold text-gray-900 dark:text-gray-100 truncate">AGL Rwanda</p>

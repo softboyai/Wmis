@@ -202,7 +202,7 @@ export default function ProductsPage() {
                 <Td>{product.category}</Td>
                 <Td>{product.unit}</Td>
                 <Td>{product.minimumStock}</Td>
-                <Td>{product.supplier?.name || <span className="text-gray-400">—</span>}</Td>
+                <Td>{product.supplier?.name || <span className="text-gray-400">N/A</span>}</Td>
                 {isAdmin && (
                   <Td>
                     <div className="flex items-center gap-1">

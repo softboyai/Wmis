@@ -109,10 +109,10 @@ export default function ReceiptsPage() {
                 <Td>{new Date(r.receiptDate).toLocaleDateString()}</Td>
                 <Td><div><p className="font-medium text-gray-900 dark:text-gray-100">{r.product?.name}</p><p className="text-xs text-gray-400">{r.product?.sku}</p></div></Td>
                 <Td>{r.supplier?.name}</Td>
-                <Td><code className="text-xs bg-gray-100 dark:bg-surface-3 px-1.5 py-0.5 rounded">{r.location ? `${r.location.zone}-${r.location.rack}-${r.location.bin}` : '—'}</code></Td>
+                <Td><code className="text-xs bg-gray-100 dark:bg-surface-3 px-1.5 py-0.5 rounded">{r.location ? `${r.location.zone}-${r.location.rack}-${r.location.bin}` : 'N/A'}</code></Td>
                 <Td><span className="font-semibold text-success">{r.quantity}</span> <span className="text-gray-400 text-xs">{r.product?.unit}</span></Td>
-                <Td>{r.receivedBy?.fullName || '—'}</Td>
-                <Td className="text-gray-500 text-xs max-w-xs truncate">{r.referenceNote || '—'}</Td>
+                <Td>{r.receivedBy?.fullName || 'N/A'}</Td>
+                <Td className="text-gray-500 text-xs max-w-xs truncate">{r.referenceNote || 'N/A'}</Td>
               </Tr>
             ))}
           </TableBody>

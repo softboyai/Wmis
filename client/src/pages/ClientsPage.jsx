@@ -88,9 +88,9 @@ export default function ClientsPage() {
             {!isLoading && data?.data?.map((c) => (
               <Tr key={c._id}>
                 <Td><span className="font-medium text-gray-900 dark:text-gray-100">{c.name}</span></Td>
-                <Td>{c.email || <span className="text-gray-400">—</span>}</Td>
-                <Td>{c.phone || <span className="text-gray-400">—</span>}</Td>
-                <Td>{c.contactPerson || <span className="text-gray-400">—</span>}</Td>
+                <Td>{c.email || <span className="text-gray-400">N/A</span>}</Td>
+                <Td>{c.phone || <span className="text-gray-400">N/A</span>}</Td>
+                <Td>{c.contactPerson || <span className="text-gray-400">N/A</span>}</Td>
                 {isAdmin && <Td><div className="flex items-center gap-1">
                   <button onClick={() => { setEditItem(c); setModalOpen(true); }} className="btn-ghost p-1.5" aria-label={`Edit ${c.name}`}><Pencil className="w-3.5 h-3.5" /></button>
                   <button onClick={() => setDeleteTarget(c)} className="btn-ghost p-1.5 text-danger hover:text-danger" aria-label={`Delete ${c.name}`}><Trash2 className="w-3.5 h-3.5" /></button>

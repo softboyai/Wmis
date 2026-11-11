@@ -20,7 +20,7 @@ function StatCard({ label, value, icon: Icon, color = 'accent', loading }) {
       </div>
       <div>
         <p className="text-xs text-gray-500 dark:text-gray-500">{label}</p>
-        <p className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mt-0.5">{value ?? '—'}</p>
+        <p className="text-2xl font-semibold text-gray-900 dark:text-gray-100 mt-0.5">{value ?? 'N/A'}</p>
       </div>
     </div>
   );
@@ -64,7 +64,7 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         {/* Chart */}
         <div className="lg:col-span-2 card p-4">
-          <h2 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-4">Stock Movements — Last 30 Days</h2>
+          <h2 className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-4">Stock Movements: Last 30 Days</h2>
           {isLoading ? (
             <div className="skeleton h-48 rounded" />
           ) : chartData.length === 0 ? (

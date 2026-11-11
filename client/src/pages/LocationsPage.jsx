@@ -110,7 +110,7 @@ export default function LocationsPage() {
                 <Td>{loc.zone}</Td>
                 <Td>{loc.capacity.toLocaleString()}</Td>
                 <Td className="min-w-[140px]"><OccupancyBar occupancy={loc.occupancy} capacity={loc.capacity} /></Td>
-                <Td className="text-gray-500 dark:text-gray-500 max-w-xs truncate">{loc.description || '—'}</Td>
+                <Td className="text-gray-500 dark:text-gray-500 max-w-xs truncate">{loc.description || 'N/A'}</Td>
                 {isAdmin && <Td><div className="flex items-center gap-1">
                   <button onClick={() => { setEditItem(loc); setModalOpen(true); }} className="btn-ghost p-1.5" aria-label={`Edit ${loc.zone}-${loc.rack}-${loc.bin}`}><Pencil className="w-3.5 h-3.5" /></button>
                   <button onClick={() => setDeleteTarget(loc)} className="btn-ghost p-1.5 text-danger hover:text-danger" aria-label={`Delete ${loc.zone}-${loc.rack}-${loc.bin}`}><Trash2 className="w-3.5 h-3.5" /></button>

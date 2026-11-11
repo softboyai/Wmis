@@ -118,9 +118,9 @@ export default function SuppliersPage() {
             {!isLoading && data?.data?.map((s) => (
               <Tr key={s._id}>
                 <Td><span className="font-medium text-gray-900 dark:text-gray-100">{s.name}</span></Td>
-                <Td>{s.email || <span className="text-gray-400">—</span>}</Td>
-                <Td>{s.phone || <span className="text-gray-400">—</span>}</Td>
-                <Td>{s.contactPerson || <span className="text-gray-400">—</span>}</Td>
+                <Td>{s.email || <span className="text-gray-400">N/A</span>}</Td>
+                <Td>{s.phone || <span className="text-gray-400">N/A</span>}</Td>
+                <Td>{s.contactPerson || <span className="text-gray-400">N/A</span>}</Td>
                 {isAdmin && (
                   <Td>
                     <div className="flex items-center gap-1">

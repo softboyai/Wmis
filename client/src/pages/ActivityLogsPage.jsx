@@ -52,14 +52,14 @@ export default function ActivityLogsPage() {
                 <Td className="whitespace-nowrap text-xs text-gray-500">{new Date(log.createdAt).toLocaleString()}</Td>
                 <Td>
                   <div>
-                    <p className="font-medium text-xs text-gray-900 dark:text-gray-100">{log.user?.fullName || '—'}</p>
+                    <p className="font-medium text-xs text-gray-900 dark:text-gray-100">{log.user?.fullName || 'N/A'}</p>
                     <p className="text-xs text-gray-400">{log.userEmail}</p>
                   </div>
                 </Td>
                 <Td><Badge variant={actionVariant[log.action] || 'neutral'}>{log.action.replace(/_/g, ' ')}</Badge></Td>
-                <Td>{log.resource || <span className="text-gray-400">—</span>}</Td>
-                <Td className="text-xs text-gray-500 dark:text-gray-500 max-w-sm truncate">{log.details || '—'}</Td>
-                <Td className="text-xs text-gray-400">{log.ipAddress || '—'}</Td>
+                <Td>{log.resource || <span className="text-gray-400">N/A</span>}</Td>
+                <Td className="text-xs text-gray-500 dark:text-gray-500 max-w-sm truncate">{log.details || 'N/A'}</Td>
+                <Td className="text-xs text-gray-400">{log.ipAddress || 'N/A'}</Td>
               </Tr>
             ))}
           </TableBody>
